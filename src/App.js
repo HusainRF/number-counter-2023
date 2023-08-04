@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
 
 function App() {
+  const [counter , setCounter] = useState(0);
+  const countIncrement = () =>{
+    setCounter(counter +1);
+  }
+
+  const countDecrement = () =>{
+    if(counter != 0 )
+      setCounter(counter -1);
+    else 
+      alert("Counter can't be negative");
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className='main_div'>
+        <div className="center_div">
+         <h1>{counter}</h1>
+         <div>
+          <button className='incdec-button'
+            onClick={countIncrement}
+          > Increment</button>
+          <button className='incdec-button'
+            onClick={countDecrement}
+          > Decrement</button>
+         </div>
+        </div>
+      </div>
+    </>
   );
 }
 
